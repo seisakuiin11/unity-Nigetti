@@ -13,7 +13,7 @@ UnityとPhotonFusionを使用して制作した、リアルタイム通信のオ
 - Photon Fusion / DOTween / UniTask / Cinemachine
 
 ## システム構成
-　 TitleDirecter<br>
+　TitleDirecter<br>
 GameDirecter ← オンライン接続<br>
  ├ LobbyDirecter<br>
  ├ SelectDirecter<br>
