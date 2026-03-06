@@ -1,25 +1,34 @@
-# unity-Nigetti
-
-## プロジェクト名
-にげっち
+# にげっち
+2年次にチーム制作で作った2人で対戦するオンライン鬼ごっこゲームです。
+オンラインゲームに初めて挑戦した作品です。
 
 ## 概要
-Unityで制作した3D鬼ごっこゲームです。<br>
-今回のチーム制作では、プログラムの大部分を担当。<br>
-初めてオンライン要素に挑戦したゲームです。
+UnityとPhotonFusionを使用して制作した、リアルタイム通信のオンラインアクションゲームです。<br>
+プレイヤー入力は NetworkInputData を用いてネットワーク同期し、複数クライアント間で同一のゲーム挙動を再現しています。<br>
+また、ゲーム進行は GameDirector によって各シーンを管理しています。
 
 ## 使用技術
 - Unity 2022.3.19f1
 - C#
-- Photon Fusion
+- Photon Fusion / DOTween / UniTask / Cinemachine
+
+## システム構成
+　 TitleDirecter
+GameDirecter ← オンライン接続
+ ├ LobbyDirecter
+ ├ SelectDirecter
+ ├ BattleDirecter
+ └ ResultDirecter
 
 ## 見てほしいコード
 - GameDirecter.cs
   `Assets/7.Script/GameDirecter.cs`
 - PlayerController.cs
   `Assets/7.Script/Player/PlayerController.cs`
-- SkillController.cs
-  `Assets/7.Script/Player/SkillController.cs`
+- BasicSpawner.cs
+  `Assets/7.Script/BasicSpawner.cs`
+- NetworkInputData.cs
+  `Assets/7.Script/NetworkInputData.cs`
 
 ## 動作デモ
 現在制作中
