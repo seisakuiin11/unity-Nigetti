@@ -1,5 +1,5 @@
 # にげっち
-2年次にチーム制作で作った2人で対戦するオンライン鬼ごっこゲームです。
+2年次にチーム制作で作った2人で対戦するオンライン鬼ごっこゲームです。<br>
 オンラインゲームに初めて挑戦した作品です。
 
 ## 概要
@@ -13,12 +13,12 @@ UnityとPhotonFusionを使用して制作した、リアルタイム通信のオ
 - Photon Fusion / DOTween / UniTask / Cinemachine
 
 ## システム構成
-　 TitleDirecter
-GameDirecter ← オンライン接続
- ├ LobbyDirecter
- ├ SelectDirecter
- ├ BattleDirecter
- └ ResultDirecter
+　 TitleDirecter<br>
+GameDirecter ← オンライン接続<br>
+ ├ LobbyDirecter<br>
+ ├ SelectDirecter<br>
+ ├ BattleDirecter<br>
+ └ ResultDirecter<br>
 
 ## 見てほしいコード
 - GameDirecter.cs
