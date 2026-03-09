@@ -31,7 +31,7 @@ GameDirecter ← オンライン接続<br>
   `Assets/7.Script/NetworkInputData.cs`
 
 ## 動作デモ
-現在制作中
+https://youtu.be/oRcOt79kO1s
 
 ## 制作期間
 6ヶ月
