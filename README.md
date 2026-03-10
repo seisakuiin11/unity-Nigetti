@@ -7,7 +7,11 @@
 ## 概要
 UnityとPhotonFusionを使用して制作した、リアルタイム通信のオンラインアクションゲームです。<br>
 プレイヤー入力は NetworkInputData を用いてネットワーク同期し、複数クライアント間で同一のゲーム挙動を再現しています。<br>
-また、ゲーム進行は GameDirector によって各シーンを管理しています。
+また、ゲーム進行は GameDirector によって各シーンを管理しています。<br>
+&nbsp;
+!["スライド1"](./Images/Slide2.jpg)
+!["スライド1"](./Images/Slide3.jpg)
+!["スライド1"](./Images/Slide6.jpg)
 
 ## 使用技術
 - Unity 2022.3.19f1
@@ -15,12 +19,14 @@ UnityとPhotonFusionを使用して制作した、リアルタイム通信のオ
 - Photon Fusion / DOTween / UniTask / Cinemachine
 
 ## システム構成
-　TitleDirecter<br>
-GameDirecter ← オンライン接続<br>
- ├ LobbyDirecter<br>
- ├ SelectDirecter<br>
- ├ BattleDirecter<br>
- └ ResultDirecter<br>
+```bash
+TitleDirecter
+GameDirecter ← オンライン接続
+ ├ LobbyDirecter
+ ├ SelectDirecter
+ ├ BattleDirecter
+ └ ResultDirecter
+ ```
 
 ## 見てほしいコード
 - GameDirecter.cs
