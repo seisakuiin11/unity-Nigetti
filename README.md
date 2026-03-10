@@ -30,16 +30,16 @@ GameDirecter ← オンライン接続
 
 ## 見てほしいコード
 - GameDirecter.cs
-  `Assets/7.Script/GameDirecter.cs`
+  `Assets/7.Script/GameDirecter.cs`<br>
 ゲーム全体の進行管理
 - PlayerController.cs
-  `Assets/7.Script/Player/PlayerController.cs`
+  `Assets/7.Script/Player/PlayerController.cs`<br>
 プレイヤー操作・キャラクターコントロール
 - BasicSpawner.cs
-  `Assets/7.Script/BasicSpawner.cs`
+  `Assets/7.Script/BasicSpawner.cs`<br>
 プレイヤー生成処理
 - NetworkInputData.cs
-  `Assets/7.Script/NetworkInputData.cs`
+  `Assets/7.Script/NetworkInputData.cs`<br>
 プレイヤー入力のネットワーク同期
 
 ## 動作デモ
