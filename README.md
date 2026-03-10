@@ -13,10 +13,19 @@ UnityとPhotonFusionを使用して制作した、リアルタイム通信のオ
 !["スライド2"](./Images/Slide3.jpg)
 !["スライド3"](./Images/Slide6.jpg)
 
+## 動作デモ
+https://youtu.be/oRcOt79kO1s
+
 ## 使用技術
 - Unity 2022.3.19f1
 - C#
 - Photon Fusion / DOTween / UniTask / Cinemachine
+
+## 制作期間
+6ヶ月
+
+## 制作体制
+チーム制作（メインプログラマー担当）
 
 ## システム構成
 ```bash
@@ -42,11 +51,6 @@ GameDirecter ← オンライン接続
   `Assets/7.Script/NetworkInputData.cs`<br>
 プレイヤー入力のネットワーク同期
 
-## 動作デモ
-https://youtu.be/oRcOt79kO1s
-
-## 制作期間
-6ヶ月
-
-## 制作体制
-チーム制作（メインプログラマー担当）
+## 改善点
+- CPUの追加
+- 同期の最適化
