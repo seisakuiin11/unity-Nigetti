@@ -10,8 +10,8 @@ UnityとPhotonFusionを使用して制作した、リアルタイム通信のオ
 また、ゲーム進行は GameDirector によって各シーンを管理しています。<br>
 &nbsp;
 !["スライド1"](./Images/Slide2.jpg)
-!["スライド1"](./Images/Slide3.jpg)
-!["スライド1"](./Images/Slide6.jpg)
+!["スライド2"](./Images/Slide3.jpg)
+!["スライド3"](./Images/Slide6.jpg)
 
 ## 使用技術
 - Unity 2022.3.19f1
@@ -31,12 +31,16 @@ GameDirecter ← オンライン接続
 ## 見てほしいコード
 - GameDirecter.cs
   `Assets/7.Script/GameDirecter.cs`
+ゲーム全体の進行管理
 - PlayerController.cs
   `Assets/7.Script/Player/PlayerController.cs`
+プレイヤー操作・キャラクターコントロール
 - BasicSpawner.cs
   `Assets/7.Script/BasicSpawner.cs`
+プレイヤー生成処理
 - NetworkInputData.cs
   `Assets/7.Script/NetworkInputData.cs`
+プレイヤー入力のネットワーク同期
 
 ## 動作デモ
 https://youtu.be/oRcOt79kO1s
