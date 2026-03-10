@@ -51,6 +51,6 @@ GameDirecter ← オンライン接続
   `Assets/7.Script/NetworkInputData.cs`<br>
 プレイヤー入力のネットワーク同期
 
-## 改善点
+## 時間があればやりたいこと
 - CPUの追加
 - 同期の最適化
