@@ -6,8 +6,7 @@
 
 ## 概要
 UnityとPhotonFusionを使用して制作した、リアルタイム通信のオンラインアクションゲームです。<br>
-プレイヤー入力は NetworkInputData を用いてネットワーク同期し、複数クライアント間で同一のゲーム挙動を再現しています。<br>
-また、ゲーム進行は GameDirector によって各シーンを管理しています。<br>
+現在、ゲーム進行管理スクリプトとPlayerController.csをメインにリファクタリングを行っています。<br>
 &nbsp;
 !["スライド1"](./Images/Slide2.jpg)
 !["スライド2"](./Images/Slide3.jpg)
@@ -30,7 +29,7 @@ https://youtu.be/oRcOt79kO1s
 ## システム構成
 ```bash
 TitleDirecter
-GameDirecter ← オンライン接続
+GameManager ← オンライン接続
  ├ LobbyDirecter
  ├ SelectDirecter
  ├ BattleDirecter
@@ -38,18 +37,15 @@ GameDirecter ← オンライン接続
  ```
 
 ## 見てほしいコード
-- GameDirecter.cs
-  `Assets/7.Script/GameDirecter.cs`<br>
+- GameManager.cs
+  `Assets/7.Script/Directer/GameManager.cs`<br>
 ゲーム全体の進行管理
+- BattleDirecter.cs
+  `Assets/7.Script/Directer/BattleDirecter.cs`<br>
+試合中の進行管理
 - PlayerController.cs
   `Assets/7.Script/Player/PlayerController.cs`<br>
 プレイヤー操作・キャラクターコントロール
-- BasicSpawner.cs
-  `Assets/7.Script/BasicSpawner.cs`<br>
-プレイヤー生成処理
-- NetworkInputData.cs
-  `Assets/7.Script/NetworkInputData.cs`<br>
-プレイヤー入力のネットワーク同期
 
 ## 時間があればやりたいこと
 - CPUの追加
