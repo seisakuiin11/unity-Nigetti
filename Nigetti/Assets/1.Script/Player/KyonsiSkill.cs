@@ -89,7 +89,9 @@ public class KyonsiSkill : ZittaiSkillBase
 
         skillState = ActionState.ACTION;
 
-        if (skillUI_d != null) skillUI_d.UISkill2((skillCount-1) / (float)MaxSkillCount, 0f, true); // アイコン変化 グレー化はしない
+        int count = skillCount - 1;
+        if (freeMode && count == 0) count = MaxSkillCount;
+        if (skillUI_d != null) skillUI_d.UISkill2(count / (float)MaxSkillCount, 0f, true); // アイコン変化 グレー化はしない
 
         if (!Object.HasStateAuthority) return;
         // ホストのみ
@@ -102,6 +104,7 @@ public class KyonsiSkill : ZittaiSkillBase
         networkBillObject = Runner.Spawn(billPrefab, pos, Quaternion.identity, PlayerRef.None);
         networkBillObject.GetComponent<Rigidbody>().AddForce(transform.forward * 700);
         networkBillObject.transform.rotation = transform.rotation;
+        Debug.Log("生成："+networkBillObject.name);
 
         // フリーモードなら
         if (freeMode && skillCount <= 0) skillCount = MaxSkillCount;

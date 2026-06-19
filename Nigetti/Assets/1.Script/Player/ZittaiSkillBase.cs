@@ -24,8 +24,8 @@ public class ZittaiSkillBase : NetworkBehaviour
     [Networked] protected ActionState skillState { get; set; }
     [Networked] protected TickTimer SkillCoolTimer { get; set; }
     [Networked] protected bool reset {  get; set; }
+    [Networked] protected bool freeMode { get; set; }
 
-    protected bool freeMode;
     protected ActionState skillStateOld;
     protected PlayerController player;
     protected PlayerAudioScript audioP;

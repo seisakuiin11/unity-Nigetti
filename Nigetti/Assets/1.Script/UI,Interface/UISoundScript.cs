@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UISoundScript : MonoBehaviour
@@ -14,15 +12,16 @@ public class UISoundScript : MonoBehaviour
     }
     private void Awake()
     {
+        TitleDirecter directer = FindAnyObjectByType<TitleDirecter>();
         GameObject soundPlayer = GameObject.FindGameObjectWithTag("SoundPlayer");
         if (soundPlayer != null)
         {
-            TitleDirecter directer = GameObject.FindAnyObjectByType<TitleDirecter>();
-            //directer.SoundPlayerChange(soundPlayer.GetComponent<UISoundScript>());
+            directer.SetSEPlayer(soundPlayer.GetComponent<UISoundScript>());
             Destroy(this.gameObject);
             return;
         }
         DontDestroyOnLoad(gameObject);
+        directer.SetSEPlayer(this);
         BGMplay(0);
         this.gameObject.tag = "SoundPlayer";
     }

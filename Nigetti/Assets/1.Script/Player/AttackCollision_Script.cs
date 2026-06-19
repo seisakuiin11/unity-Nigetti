@@ -13,6 +13,8 @@ public class AttackCorri : NetworkBehaviour
     {
         if (Onlry && other.tag == "Nige")
         {
+            Debug.Log("çUåÇ");
+
             Onlry = false;
             this.gameObject.SetActive(false);
             player.GiveHit(takeSoul);

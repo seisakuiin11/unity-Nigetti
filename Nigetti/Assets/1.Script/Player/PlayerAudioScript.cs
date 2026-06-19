@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAudioScript : MonoBehaviour
@@ -9,10 +6,12 @@ public class PlayerAudioScript : MonoBehaviour
     [SerializeField]AudioClip  Jiangshi, JiangshiHit, Kyubi,Oni, Attack, Hit, TP, Invisible, StanbySE, GetSoulSE;
     [SerializeField,Header("âπÇçƒê∂Ç∑ÇÈÇ‚Ç¬")] AudioSource audioPlayer;
     UISoundScript AudioPlayer;
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        AudioPlayer = GameObject.FindObjectOfType<UISoundScript>();
+        AudioPlayer = FindObjectOfType<UISoundScript>();
         
     }
 

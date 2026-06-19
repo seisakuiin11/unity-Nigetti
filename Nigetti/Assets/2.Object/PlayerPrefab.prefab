@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   takeSoul: 1
-  player: {fileID: 0}
+  player: {fileID: 4341057073950034478}
 --- !u!1 &3113062310537429044
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +653,6 @@ GameObject:
   - component: {fileID: 3556865569500546463}
   - component: {fileID: 6924308279510253165}
   - component: {fileID: 4341057073950034478}
-  - component: {fileID: 7817889110510763489}
   - component: {fileID: 5448749710673774936}
   - component: {fileID: 9206287567285703173}
   - component: {fileID: 5996400940746806444}
@@ -712,7 +711,6 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 6924308279510253165}
   - {fileID: 4341057073950034478}
-  - {fileID: 7817889110510763489}
   - {fileID: 5448749710673774936}
   - {fileID: 1767117426917331237}
   - {fileID: 1356308835661124348}
@@ -828,31 +826,6 @@ MonoBehaviour:
   - {fileID: 1356308835661124348}
   - {fileID: 8873109673426624163}
   - {fileID: 8050967242964770705}
---- !u!114 &7817889110510763489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4097192189969362760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a2552c337e0664fb31467d884b59f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 5942347393729210833}
-  attackCol: {fileID: 1370356740942199576}
-  YUREI_SkillPlace: {fileID: 5096044826680990521}
-  YUREI_SkillObj: {fileID: 5999391379194859959}
-  YUREI_Skill_Col: {fileID: 2427240198301476345}
-  yureiSkill_obj:
-  - {fileID: 6796028444832287207}
-  - {fileID: 3113062310537429044}
-  - {fileID: 5542261787319282523}
-  billPrefab:
-    RawGuidValue: fefd71cae026df44e93c6d1225590e4e
-  effects: {fileID: 3151896702574848582}
-  kyubiEffect: {fileID: 5866197028656757428}
 --- !u!114 &5448749710673774936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,8 +1420,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 968055265021097211}
-  - component: {fileID: 8724570952490396798}
-  - component: {fileID: 3657426984698208053}
   m_Layer: 0
   m_Name: YUREI_Skill
   m_TagString: Untagged
@@ -1475,124 +1446,6 @@ Transform:
   - {fileID: 4480800616387343312}
   m_Father: {fileID: 1979091777449960451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!120 &8724570952490396798
-LineRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999391379194859959}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 145113334b881514db7820009410d464, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 3
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
-    shadowBias: 0.5
-    generateLightingData: 0
-  m_MaskInteraction: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
-  m_ApplyActiveColorSpace: 1
---- !u!114 &3657426984698208053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999391379194859959}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65ff68adf67cbf4e8fea530733c6141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1954765690918555056}
-  rushPlace: {fileID: 5096044826680990521}
 --- !u!1 &6082363522808910656
 GameObject:
   m_ObjectHideFlags: 0
@@ -8987,11 +8840,6 @@ PrefabInstance:
 --- !u!4 &6132644239195870045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83a518dc3bea60147bde4a45b8f8ec6f, type: 3}
-  m_PrefabInstance: {fileID: 5949604808248849590}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6796028444832287207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 83a518dc3bea60147bde4a45b8f8ec6f, type: 3}
   m_PrefabInstance: {fileID: 5949604808248849590}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6596012107428969396

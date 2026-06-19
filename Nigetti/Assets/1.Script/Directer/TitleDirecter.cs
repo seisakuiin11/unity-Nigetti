@@ -23,22 +23,16 @@ public class TitleDirecter : MonoBehaviour
 
     void Awake()
     {
-        waitBtn = true;
-        menu_s = menu.GetComponent<SettingManager>();
-        SE = FindAnyObjectByType<UISoundScript>();
-        roomID = "1234";
-        inputID.text = roomID;
-
-        Task.Run(async () =>
-        {
-            await Task.Delay(100);
-            waitBtn = false;
-        });
     }
 
     /* 初期化 スタート処理 ----------------------------------------------------------------------------- */
     void Start()
     {
+        waitBtn = true;
+        menu_s = menu.GetComponent<SettingManager>();
+        roomID = "1234";
+        inputID.text = roomID;
+
         process = TITLE;
         titleUI.SetActive(true);
         room.SetActive(false);
@@ -46,6 +40,12 @@ public class TitleDirecter : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        Task.Run(async () =>
+        {
+            await Task.Delay(100);
+            waitBtn = false;
+        });
     }
 
     /* アップデート処理 --------------------------------------------------------------------------------- */
@@ -88,6 +88,8 @@ public class TitleDirecter : MonoBehaviour
         Application.Quit();//ゲームプレイ終了
 #endif
     }
+
+    public void SetSEPlayer(UISoundScript uiSound) => SE = uiSound;
 
     /* =================================コントローラー=========================================== */
     public void OnSubmit()
@@ -141,7 +143,12 @@ public class TitleDirecter : MonoBehaviour
         {
             waitBtn = true;
             bool open = menu_s.Menu();
-            if (!open) process = TITLE;
+            if (!open) {
+                process = TITLE;
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
         else if(process == TITLE)
         {

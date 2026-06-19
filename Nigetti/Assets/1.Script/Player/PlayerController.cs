@@ -66,15 +66,12 @@ public class PlayerController : NetworkBehaviour
     ActionState teleportStateOld;   // テレポート状態管理 ローカル
     ActionState invisibleStateOld;  // 透明化状態管理 ローカル
     bool attackAnimPlayFlag;        // 攻撃アニメーションを再生中かどうか
+    TickTimer AttackAnimTimer;      // 攻撃コライダーが存在する時間
     TickTimer ChangeSpeedTimer;     // スピード変化時間
     float saveSpeed;                // スピード保存用
-    bool skillResetOld;             // クライアント用
-    bool actionResetOld;            // クライアント用
     Action OnHit;                   // 攻撃が当たっときに呼ぶ処理
 
-    PlayerController enemy;
     KCC _kcc;
-    SkillController skills;
     ZittaiSkillBase zittaiSkill;
     CharcterDirecter charcters;
     PlayerAudioScript audioP;
@@ -85,11 +82,11 @@ public class PlayerController : NetworkBehaviour
     public override void Spawned()
     {
         _kcc = GetComponent<KCC>();
-        skills = GetComponent<SkillController>();
         charcters = GetComponent<CharcterDirecter>();
         audioP = GetComponent<PlayerAudioScript>();
         zittaiSkill = zittaiSkills[0];
         zittaiSkill.ResetSkill();
+        attack_c.SetActive(false);
 
         if (Object.HasInputAuthority) // 操作者本人なら
         {
@@ -138,6 +135,9 @@ public class PlayerController : NetworkBehaviour
 
         // 強制歩き継続時間
         if(WalkTimer.Expired(Runner)) WalkTimer = TickTimer.None;
+
+        // コライダー生存時間
+        if (AttackAnimTimer.Expired(Runner)) { attack_c.SetActive(false); AttackAnimTimer = TickTimer.None; }
 
         // 攻撃クールタイム
         if(NotAttackTimer.Expired(Runner)) NotAttackTimer = TickTimer.None;
@@ -423,19 +423,15 @@ public class PlayerController : NetworkBehaviour
 
             // クールタイム設定
             NotAttackTimer = TickTimer.CreateFromSeconds(Runner, AttackCoolTime);
+            // コライダー アクティブ可
+            attack_c.SetActive(true);
         }
-
-        // コライダー アクティブ可
-        attack_c.SetActive(true);
 
         // UI
         if (skillUI_d != null) skillUI_d.UISkill1(0f, AttackCoolTime, false);
 
         // アニメーション再生終了後、コライダー 非アクティブ化
-        Task.Run(async () => { 
-            await Task.Delay((int)(AttackAnimTime * 1000)); // ミリ秒変換
-            attack_c.SetActive(false);
-        });
+        AttackAnimTimer = TickTimer.CreateFromSeconds(Runner, AttackAnimTime);
     }
 
     // テレポート実行
@@ -597,6 +593,7 @@ public class PlayerController : NetworkBehaviour
         if (!Object.HasStateAuthority) return;
 
         WalkTimer = TickTimer.CreateFromSeconds(Runner, time);
+        RPC_EffectPlay(EffectNum.DEBUFF, time);
     }
 
     /// <summary>
@@ -725,7 +722,6 @@ public class PlayerController : NetworkBehaviour
     {
         skin = charcters.ChangeSkin(charaNum, turn);
         anim = charcters.Anim(charaNum);
-        skills.SetAnim(anim);
 
         zittaiSkill = zittaiSkills[charaNum];
         zittaiSkill.ResetSkill();
@@ -776,5 +772,13 @@ public class PlayerController : NetworkBehaviour
             anim.SetBool("Armup", false);
             anim.Play("None");
         }
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    void RPC_EffectPlay(EffectNum effect, float time)
+    {
+        effects.EffectFollowType(effect, time);
+
+        if (effect == EffectNum.DEBUFF) audioP.JiangshiHitSound();
     }
 }

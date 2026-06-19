@@ -134,6 +134,8 @@ public class LobbyDirecter : CommonDirecter
         lobbyUI.SetActive(false);
 
         // 音の再生
+        UISoundScript adio = FindAnyObjectByType<UISoundScript>();
+        adio.SceneSelectSEPlay();
 
         // Host限定処理
         if (!Runner.IsServer) return;
@@ -148,6 +150,7 @@ public class LobbyDirecter : CommonDirecter
     {
         // 参加者の登録
         readyFlags.Add(playerRef, false);
+        Debug.Log(readyFlags.Count);
 
         // キャラの生成
         NetworkObject playerObj = data.Runner.Spawn(data.CharacterPrefab, data.CreatePositions[data.PlayerRefs.Count - 1].position, Quaternion.identity, playerRef);
@@ -173,10 +176,11 @@ public class LobbyDirecter : CommonDirecter
     // ゲームスタート
     void GameStart()
     {
-        // Host以外に権限はない
-        if (!Runner.IsServer) return;
         // 全員の準備ができていない
         if (!IsAllReady()) return;
+
+        // Host以外に権限はない
+        if (!Runner.IsServer) return;
 
         // ゲーム開始
         gameStart = true;
@@ -210,15 +214,15 @@ public class LobbyDirecter : CommonDirecter
     // 準備完了アイコンの表示
     void DispReadyIcon()
     {
-        int i = 0;
+        int i = readyFlags.Count - 1; // 後ろに追加されるのではなく、前に追加される配列だから
         foreach(var item in readyFlags) // 準備完了確認
         {
             readyIcons[i].SetActive(item.Value); // 準備完了 表示
-            i++;
+            i--;
         }
 
         // 余計なものは非表示
-        for(;i < readyIcons.Length; i++) readyIcons[i].SetActive(false);
+        for(int j = readyFlags.Count; j < readyIcons.Length; j++) readyIcons[j].SetActive(false);
     }
 
     // スタートアイコンの表示
@@ -290,7 +294,7 @@ public class LobbyDirecter : CommonDirecter
     // ゲーム開始
     public override void BattleStart(InputValue inputValue)
     {
-        if (waitBtn) return;
+        if (waitBtn || uiType != NONE) return;
 
         waitBtn = true;
 

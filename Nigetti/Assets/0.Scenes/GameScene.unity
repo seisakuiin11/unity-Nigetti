@@ -15298,7 +15298,6 @@ MonoBehaviour:
   n_skillIcon2: {fileID: 18918311}
   oni_s: {fileID: 21300000, guid: d4453e30f6bac3744a799a13e80beb84, type: 3}
   nige_s: {fileID: 21300000, guid: f920b545e132daa4b9ce30ab1ffc2e5c, type: 3}
-  ChangeTimer: {fileID: 1968828242}
 --- !u!4 &1195817930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f392d372d27229468eb143a1c60e27f, type: 3}
@@ -20426,6 +20425,7 @@ GameObject:
   - component: {fileID: 1642111881}
   - component: {fileID: 1642111880}
   - component: {fileID: 1642111879}
+  - component: {fileID: 1642111882}
   m_Layer: 0
   m_Name: NetworkRunner
   m_TagString: Untagged
@@ -20496,6 +20496,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642111882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642111878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5a1ff9dee264bfd829a39e6542dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _physicsAuthority: 2
+  _physicsTiming: 3
+  ClientPhysicsSimulation: 0
+  DeltaTimeMultiplier: 1
+  SetUnityFixedTimestep: 0
 --- !u!1 &1659641283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9ebc136cf1e2de47944bd4afcb397f8, type: 3}

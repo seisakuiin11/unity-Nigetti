@@ -175,8 +175,16 @@ public class BattleDirecter : CommonDirecter
     {
         if (GameTimer.Expired(Runner))
         {
-            Debug.Log(state);
             shareData.Winner = Judge();
+
+            // キャラクターの削除
+            foreach (var player in players)
+            {
+                NetworkObject playerObj = player.Value.GetComponent<NetworkObject>();
+                data.Runner.Despawn(playerObj);
+            }
+            players.Clear();
+
             // 次のシーンへ
             shareData.Scene = GameManager.SceneType.RESULT;
         }
@@ -207,6 +215,7 @@ public class BattleDirecter : CommonDirecter
     void RPC_DeleteDiceUI()
     {
         diceUI.gameObject.SetActive(false);
+        SE.ChangeSEPlay();
     }
 
     // ゲームスタート

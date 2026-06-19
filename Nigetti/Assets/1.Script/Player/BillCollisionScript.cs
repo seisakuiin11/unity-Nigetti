@@ -1,6 +1,4 @@
 using Fusion;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BillCollisionScript : NetworkBehaviour
@@ -16,6 +14,7 @@ public class BillCollisionScript : NetworkBehaviour
     {
         if (other.tag == "Nige")
         {
+            Debug.Log("‚Åƒoƒt");
             other.GetComponent<PlayerController>().DisableRunning(3f);
         }
         if (!count) Runner.Despawn(obj); // ‚¨ŽD‚Ì”j‰ó

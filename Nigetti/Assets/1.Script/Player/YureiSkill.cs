@@ -126,7 +126,7 @@ public class YureiSkill : ZittaiSkillBase
             animStateOld = ActionState.NONE;
 
             // フリーモード時のUI
-            if (SkillCoolTimer.IsRunning && skillUI_d != null) skillUI_d.UISkill2(0f, SkillCoolTime, false);
+            if (freeMode && skillUI_d != null) skillUI_d.UISkill2(0f, SkillCoolTime, false);
         }
 
         // リセット
